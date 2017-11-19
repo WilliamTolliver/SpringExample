@@ -1,5 +1,7 @@
 package com.wttechnologies.example;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -9,9 +11,12 @@ public class App {
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("com/wttechnologies/example/beans/beans.xml");
 		
-		Person person = (Person)context.getBean("person");
+		OffersDAO offersDao = (OffersDAO)context.getBean("offersDAO");
 		
-		System.out.println(person.toString());
+		List<Offer> offers = offersDao.getOffers();
+		
+		for(Offer offer : offers)
+			System.out.println(offer.toString());
 		
 		((ClassPathXmlApplicationContext)context).close();
 	}
