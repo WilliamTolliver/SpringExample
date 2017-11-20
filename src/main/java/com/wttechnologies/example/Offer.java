@@ -9,6 +9,14 @@ public class Offer {
 	public Offer() {
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Offer(String name, String email, String text) {
+		this.name = name;
+		this.email = email;
+		this.text = text;
+	}
+
 
 	public String getName() {
 		return name;
